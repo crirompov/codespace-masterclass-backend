@@ -1,0 +1,16 @@
+{
+  "name": "codespace-masterclass-backend",
+  "version": "1.0.0",
+  "description": "codespace-masterclass-backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Cristian Romero Povea",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
