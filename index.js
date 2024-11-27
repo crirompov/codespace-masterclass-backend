@@ -9,7 +9,7 @@ app.get('/healthy', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    res.send('Hola desde CodeSpace Academy con Cristiaanromero dando el taller!')
+    res.send('Hola desde CodeSpace Academy con Cristiaanromero dando el taller! Y modificando código!')
 })
 
 app.listen(PORT, () => {
