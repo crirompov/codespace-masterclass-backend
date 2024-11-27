@@ -24,4 +24,17 @@ jobs:
         with: 
           push: true
           tags: ${{secrets.DOCKER_USERNAME}}/codespace-masterclass-backend:latest
-        
+      
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v0.1.11
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          script: |
+            docker pull ${{ secrets.DOCKER_USERNAME }}/codespace-masterclass-backend:latest
+            docker stop codespace-masterclass-backend || true
+            docker rm codespace-masterclass-backend || true
+            docker run -d -p 80:3000 --name codespace-masterclass-backend ${{ secrets.DOCKER_USERNAME }}/codespace-masterclass-backend:latest
+
